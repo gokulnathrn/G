@@ -1,109 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/404.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
-    <title>Got Lost! Page Not Found</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>404 | Page Not Found</title>
+
+  <!-- SEO -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="description" content="404 error – page not found. Return to homepage.">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.png">
+
+  <!-- ================= EMBEDDED CSS ================= -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #020617;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar a:hover {
+      color: #38bdf8;
+    }
+
+    #menu {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ===== 404 SECTION ===== */
+    .page_404 {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .page_404 h1 {
+      font-size: 8rem;
+      color: #38bdf8;
+    }
+
+    .msg h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .msg p {
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: #38bdf8;
+      color: #020617;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #020617;
+      padding: 2rem;
+    }
+
+    .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .box h3 {
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+
+    .box p,
+    .box a {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .share a {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .credit {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .pulse {
+      color: red;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      #menu {
+        display: block;
+      }
+
+      .navbar {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        background: #020617;
+        transition: 0.3s;
+      }
+
+      .navbar ul {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .navbar.nav-toggle {
+        right: 0;
+      }
+
+      .page_404 h1 {
+        font-size: 5rem;
+      }
+    }
+  </style>
 </head>
-<body oncontextmenu="return false">
 
-<!-- navbar starts -->
+<body>
+
+<!-- ===== HEADER ===== -->
 <header>
-        <a href="/" class="logo"><i class="fab fa-node-js"></i> Sesu</a>
+  <a href="/" class="logo"><i class="fab fa-node-js"></i> Sesu</a>
 
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a href="/#work">Work</a></li>
-            <li><a href="/#contact">Contact</a></li>
-            </ul>
-        </nav>
+  <div id="menu" class="fas fa-bars"></div>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="/#home">Home</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#education">Education</a></li>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
-<!-- navbar ends -->
 
-<!-- 404 section start -->
+<!-- ===== 404 SECTION ===== -->
 <section class="page_404">
-        <div class="container">
-          <div class="wrapper">
-            <h1 class="text-center ">404</h1>
-          </div>
-          
-          <div class="msg">
-          <h3>Looks like you're lost</h3>
-          <p>The page you are looking for is not available!</p>
-           
-          <div class="backbtn">
-            <a href="/" class="btn">
-                <i class="fas fa-arrow-left"></i>
-                <span>Back to Home</span>
-          </a>
-          </div>
+  <div>
+    <h1>404</h1>
+    <div class="msg">
+      <h3>Oops! You’re lost 🚧</h3>
+      <p>The page you’re looking for doesn’t exist.</p>
 
-          </div>
-        </div>
+      <a href="/" class="btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+      </a>
+    </div>
+  </div>
 </section>
-<!-- 404 section end -->
 
-<!-- footer section starts -->
+<!-- ===== FOOTER ===== -->
 <section class="footer">
-
   <div class="box-container">
 
-      <div class="box">
-          <h3>Gokul's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
+    <div class="box">
+      <h3>Gokul's Portfolio</h3>
+      <p>
+        Thank you for visiting my personal portfolio website.
+        <br><br>Keep Rising 🚀
+      </p>
+    </div>
+
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="/#home">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#skills">Skills</a>
+      <a href="/#education">Education</a>
+      <a href="/#work">Work</a>
+    </div>
+
+    <div class="box">
+      <h3>Contact</h3>
+      <p><i class="fas fa-phone"></i> +91 9003598594</p>
+      <p><i class="fas fa-envelope"></i> gokulnathdev@gmail.com</p>
+      <p><i class="fas fa-map-marked-alt"></i> Chennai, India</p>
+
+      <div class="share">
+        <a href="https://github.com/gokulnathrn" target="_blank" rel="noopener noreferrer" class="fab fa-github"></a>
+        <a href="mailto:gokulnathdev@gmail.com" class="fas fa-envelope"></a>
+        <a href="https://twitter.com/gokulnathrn" target="_blank" rel="noopener noreferrer" class="fab fa-twitter"></a>
       </div>
+    </div>
 
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="/#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="/#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="/#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="/#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="/#work"><i class="fas fa-chevron-circle-right"></i> work</a>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+91 9003598594</p>
-          <p> <i class="fas fa-envelope"></i>gokulnathdev@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>chennai India-600047</p>
-          <div class="share">
-
-
-              <a href="https://github.com/gokulnathrn" class="fab fa-github" target="_blank"></a>
-              <a href="mailto:gokulnathdev@gmail.com" class="fas fa-envelope" target="_blank"></a>
-              <a href="https://twitter.com/gokulnathrn" class="fab fa-twitter" target="_blank"></a>
-             
-          </div>
-      </div>
   </div>
 
-  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/gokulnathrn"> Gokulnath </a></h1>
-
+  <h1 class="credit">
+    Designed with <i class="fa fa-heart pulse"></i> by
+    <a href="https://www.linkedin.com/in/gokulnathrn" target="_blank">Gokulnath</a>
+  </h1>
 </section>
-<!-- footer section ends -->
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- ================= EMBEDDED JS ================= -->
+<script>
+  const menu = document.getElementById("menu");
+  const navbar = document.querySelector(".navbar");
 
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="/assets/js/404.js"></script>
-
+  menu.addEventListener("click", () => {
+    menu.classList.toggle("fa-times");
+    navbar.classList.toggle("nav-toggle");
+  });
+</script>
 
 </body>
 </html>
-
